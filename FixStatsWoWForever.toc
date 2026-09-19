@@ -1,0 +1,8 @@
+## Interface: 11508, 20505, 30405, 40402, 50503, 110105
+## Title: Fix Stats WoW Forever
+## Notes: Fix the format error (string expected, got nil) in the character panel (C key) with a non-English client.
+## Author: Poulpix
+## Version: 1.0
+## SavedVariables: FixStatsWoWForeverDB
+
+FixStatsWoWForever.lua

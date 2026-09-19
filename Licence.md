@@ -1,4 +1,4 @@
-Fix Stats WoW Forever Beta License
+Fix Stats WoW Forever License
 
 Copyright (c) 2026 Poulpix. All rights reserved.
 
