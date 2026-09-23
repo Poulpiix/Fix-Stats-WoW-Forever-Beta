@@ -1,10 +1,3 @@
--- Fix Stats Locale
--- Cause probable : PaperDollFrame_SetStatTooltip2 cherche un texte de tooltip
--- avec une clef construite a partir du nom de stat LOCALISE (ex: "Force"),
--- par exemple PALADIN_Force_TOOLTIP, alors que les globales n'existent
--- qu'avec le nom anglais (PALADIN_STRENGTH_TOOLTIP). Resultat : nil dans format().
--- Cet addon cree les globales manquantes pour toutes les classes.
-
 local CLASSES = {
   "WARRIOR", "PALADIN", "HUNTER", "ROGUE", "PRIEST", "DEATHKNIGHT",
   "SHAMAN", "MAGE", "WARLOCK", "MONK", "DRUID", "DEMONHUNTER", "EVOKER",
@@ -12,6 +5,12 @@ local CLASSES = {
 local ENGLISH = { "STRENGTH", "AGILITY", "STAMINA", "INTELLECT", "SPIRIT" }
 
 local created = {}
+
+local function DisableScriptErrors()
+  if GetCVar("scriptErrors") ~= "0" then
+    SetCVar("scriptErrors", "0")
+  end
+end
 
 local function setIfMissing(key, value)
   if _G[key] == nil then
@@ -43,7 +42,10 @@ end
 local f = CreateFrame("Frame")
 f:RegisterEvent("PLAYER_LOGIN")
 f:RegisterEvent("PLAYER_ENTERING_WORLD")
-f:SetScript("OnEvent", function() Patch() end)
+f:SetScript("OnEvent", function()
+  DisableScriptErrors()
+  Patch()
+end)
 
 SLASH_FIXSTATSLOCALE1 = "/fixstats"
 SlashCmdList["FIXSTATSLOCALE"] = function()

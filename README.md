@@ -6,11 +6,6 @@ Fix the format error (string expected, got nil) in the character panel (C key) w
 
 ![alt text](https://raw.githubusercontent.com/Poulpiix/media/refs/heads/main/Fixstatswowforever.png)
 
-However, this doesn't fix Blizzard's Lua errors. If you find the error display annoying:
-
-*   /console scriptErrors 0 — Disables the error display
-*   /console scriptErrors 1 — Re-enables the error display
-
 ## Troubleshooting
 
 If the addon shows errors, take a screenshot and send it to me on [X (Twitter)](https://x.com/poulpi_x).
